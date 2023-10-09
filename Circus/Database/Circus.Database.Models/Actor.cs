@@ -24,5 +24,5 @@ public class Actor
         AvatarId = avatarId;
     }
     
-    public ICollection<ActorShow> ActorShows { get; set; }
+    public ICollection<ActorShow>? ActorShows { get; set; }
 }

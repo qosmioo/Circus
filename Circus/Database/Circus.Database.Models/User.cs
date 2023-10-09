@@ -32,7 +32,7 @@ public class User
         Role = role;
     }
     
-    public ICollection<Feedback> Feedbacks { get; set; }
+    public ICollection<Feedback>? Feedbacks { get; set; }
     
-    public ICollection<Ticket> Tickets { get; set; }
+    public ICollection<Ticket>? Tickets { get; set; }
 }

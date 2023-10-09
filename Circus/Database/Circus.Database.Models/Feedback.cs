@@ -30,4 +30,8 @@ public class Feedback
         CreatedAt = createdAt;
         Rating = rating;
     }
+    
+    public Show? Show { get; set; }
+    
+    public User? User { get; set; }
 }
