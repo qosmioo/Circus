@@ -23,6 +23,6 @@ public class Actor
         Description = description;
         AvatarId = avatarId;
     }
-    
-    public ICollection<ActorShow> ActorShows { get; set; }
+
+    public ICollection<ActorShow>? ActorShows { get; set; }
 }

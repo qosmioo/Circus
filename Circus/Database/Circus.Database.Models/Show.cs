@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Circus.Database.Models;
@@ -28,9 +28,9 @@ public class Show
         PosterId = posterId;
     }
     
-    public ICollection<Feedback> Feedbacks { get; set; }
+    public ICollection<Feedback>? Feedbacks { get; set; }
     
-    public ICollection<Session> Sessions { get; set; }
+    public ICollection<Session>? Sessions { get; set; }
     
-    public ICollection<ActorShow> ActorShows { get; set; }
+    public ICollection<ActorShow>? ActorShows { get; set; }
 }

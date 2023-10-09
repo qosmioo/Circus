@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Circus.Database.Models;
 
@@ -30,4 +30,10 @@ public class Ticket
         Price = price;
         IsAvailable = isAvailable;
     }
+    
+    public Session? Session { get; set; }
+    
+    public User? User { get; set; }
+    
+    public Seat? Seat { get; set; }
 }

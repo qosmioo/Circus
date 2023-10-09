@@ -22,4 +22,9 @@ public class ActorShow
         ActorId = actorId;
         Role = role;
     }
+
+    public Show? Show { get; set; }
+    
+    public Actor? Actor { get; set; }
+
 }

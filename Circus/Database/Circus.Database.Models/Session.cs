@@ -24,5 +24,9 @@ public class Session
         StartsAt = startsAt;
     }
     
-    public ICollection<Ticket> Tickets { get; set; }
+    public Show? Show { get; set; }
+    
+    public Hall? Hall { get; set; }
+    
+    public ICollection<Ticket>? Tickets { get; set; }
 }
