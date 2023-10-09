@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Circus.Database.Models;
 
-public class Show
+public class Actor
 {
     public Guid Id { get; set; }
     
@@ -11,26 +11,18 @@ public class Show
     
     public string Description { get; set; }
     
-    public TimeSpan Duration { get; set; }
-    
-    public Guid PosterId { get; set; }
+    public Guid? AvatarId { get; set; }
 
-    public Show(Guid id, 
+    public Actor(Guid id, 
         string name, 
         string description, 
-        TimeSpan duration, 
-        Guid posterId)
+        Guid? avatarId)
     {
         Id = id;
         Name = name;
         Description = description;
-        Duration = duration;
-        PosterId = posterId;
+        AvatarId = avatarId;
     }
-    
-    public ICollection<Feedback>? Feedbacks { get; set; }
-    
-    public ICollection<Session>? Sessions { get; set; }
-    
+
     public ICollection<ActorShow>? ActorShows { get; set; }
 }
