@@ -1,4 +1,4 @@
-﻿using System;
+﻿sing System;
 
 namespace Circus.Database.Models
 {
