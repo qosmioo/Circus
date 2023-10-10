@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Circus.Database.Models;
 
@@ -19,5 +20,5 @@ public class Seat
     
     public Row? Row { get; set; }
     
-    public Ticket? Ticket { get; set; }
+    public ICollection<Ticket>? Ticket { get; set; }
 }

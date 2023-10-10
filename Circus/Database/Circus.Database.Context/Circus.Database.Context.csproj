@@ -4,4 +4,16 @@
         <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Circus.Database.Models\Circus.Database.Models.csproj" />
+    </ItemGroup>
+
 </Project>
