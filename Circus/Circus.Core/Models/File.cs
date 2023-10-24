@@ -1,4 +1,6 @@
-﻿namespace Circus.Core.Models;
+﻿using System;
+
+namespace Circus.Core.Models;
 
 public class File
 {

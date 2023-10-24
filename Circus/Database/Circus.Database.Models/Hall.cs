@@ -15,7 +15,7 @@ public class Hall
         Name = name;
     }
 
-    public ICollection<Session>? Session { get; set; }
+    public ICollection<Session>? Sessions { get; set; }
 
     public ICollection<Sector>? Sectors { get; set; }
 }

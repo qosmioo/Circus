@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Circus.Database.Models;
+namespace Circus.Core.Models;
 
 public class User
 {
@@ -16,13 +16,12 @@ public class User
     public Guid? AvatarId { get; set; }
     
     public string Role { get; set; }
+    
+    public List<Feedback>? Feedbacks { get; set; }
+    
+    public List<Ticket>? Tickets { get; set; }
 
-    public User(Guid id, 
-        string login, 
-        string password, 
-        string name, 
-        Guid avatarId, 
-        string role)
+    public User(Guid id, string login, string password, string name, Guid? avatarId, string role, List<Feedback>? feedbacks, List<Ticket>? tickets)
     {
         Id = id;
         Login = login;
@@ -30,9 +29,7 @@ public class User
         Name = name;
         AvatarId = avatarId;
         Role = role;
+        Feedbacks = feedbacks;
+        Tickets = tickets;
     }
-    
-    public ICollection<Feedback>? Feedbacks { get; set; }
-    
-    public ICollection<Ticket>? Tickets { get; set; }
 }
