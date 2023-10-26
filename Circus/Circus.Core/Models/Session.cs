@@ -13,20 +13,14 @@ public class Session
     
     public DateTimeOffset StartsAt { get; set; }
     
-    public Show? Show { get; set; }
-    
-    public Hall? Hall { get; set; }
-    
     public List<Ticket>? Tickets { get; set; }
 
-    public Session(Guid id, Guid showId, Guid hallId, DateTimeOffset startsAt, Show? show, Hall hall, List<Ticket>? tickets)
+    public Session(Guid id, Guid showId, Guid hallId, DateTimeOffset startsAt, List<Ticket>? tickets)
     {
         Id = id;
         ShowId = showId;
         HallId = hallId;
         StartsAt = startsAt;
-        Show = show;
-        Hall = hall;
         Tickets = tickets;
     }
 }

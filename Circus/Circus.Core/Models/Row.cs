@@ -11,16 +11,13 @@ public class Row
     
     public int RowNumber { get; set; }
     
-    public Sector? Sector { get; set; }
-    
     public List<Seat>? Seats { get; set; }
 
-    public Row(Guid id, Guid sectorId, int rowNumber, Sector? sector, List<Seat> seats)
+    public Row(Guid id, Guid sectorId, int rowNumber, List<Seat> seats)
     {
         Id = id;
         SectorId = sectorId;
         RowNumber = rowNumber;
-        Sector = sector;
         Seats = seats;
     }
 }

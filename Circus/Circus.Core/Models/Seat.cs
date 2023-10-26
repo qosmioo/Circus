@@ -11,16 +11,13 @@ public class Seat
     
     public int SeatNumber { get; set; }
     
-    public Row? Row { get; set; }
-    
     public List<Ticket>? Tickets { get; set; }
 
-    public Seat(Guid id, Guid rowId, int seatNumber, Row row, List<Ticket>? tickets)
+    public Seat(Guid id, Guid rowId, int seatNumber, List<Ticket>? tickets)
     {
         Id = id;
         RowId = rowId;
         SeatNumber = seatNumber;
-        Row = row;
         Tickets = tickets;
     }
 }
