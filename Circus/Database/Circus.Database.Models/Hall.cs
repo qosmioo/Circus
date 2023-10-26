@@ -11,11 +11,11 @@ public class Hall
 
     public Hall(Guid id, string name)
     {
-        this.Id = id;
+        Id = id;
         Name = name;
     }
 
-    public ICollection<Session>? Session { get; set; }
+    public ICollection<Session>? Sessions { get; set; }
 
     public ICollection<Sector>? Sectors { get; set; }
 }
