@@ -11,7 +11,7 @@ public class Hall
 
     public Hall(Guid id, string name)
     {
-        this.Id = id;
+        Id = id;
         Name = name;
     }
 
