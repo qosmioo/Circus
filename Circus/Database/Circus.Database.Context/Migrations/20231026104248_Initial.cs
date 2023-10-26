@@ -74,7 +74,7 @@ namespace Circus.Database.Context.Migrations
                     Login = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    AvatarId = table.Column<Guid>(type: "uuid", nullable: false),
+                    AvatarId = table.Column<Guid>(type: "uuid", nullable: true),
                     Role = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

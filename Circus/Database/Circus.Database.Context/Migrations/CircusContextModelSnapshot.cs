@@ -283,7 +283,7 @@ namespace Circus.Database.Context.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("AvatarId")
+                    b.Property<Guid?>("AvatarId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Login")
@@ -381,7 +381,7 @@ namespace Circus.Database.Context.Migrations
             modelBuilder.Entity("Circus.Database.Models.Session", b =>
                 {
                     b.HasOne("Circus.Database.Models.Hall", "Hall")
-                        .WithMany("Session")
+                        .WithMany("Sessions")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -400,7 +400,7 @@ namespace Circus.Database.Context.Migrations
             modelBuilder.Entity("Circus.Database.Models.Ticket", b =>
                 {
                     b.HasOne("Circus.Database.Models.Seat", "Seat")
-                        .WithMany("Ticket")
+                        .WithMany("Tickets")
                         .HasForeignKey("SeatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -433,7 +433,7 @@ namespace Circus.Database.Context.Migrations
                 {
                     b.Navigation("Sectors");
 
-                    b.Navigation("Session");
+                    b.Navigation("Sessions");
                 });
 
             modelBuilder.Entity("Circus.Database.Models.Row", b =>
@@ -443,7 +443,7 @@ namespace Circus.Database.Context.Migrations
 
             modelBuilder.Entity("Circus.Database.Models.Seat", b =>
                 {
-                    b.Navigation("Ticket");
+                    b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("Circus.Database.Models.Sector", b =>

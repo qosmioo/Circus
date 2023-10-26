@@ -17,7 +17,7 @@ public class User
     
     public string Role { get; set; }
 
-    public User(Guid id, string login, string password, string name, Guid? avatarId, string role, ICollection<Feedback>? feedbacks, ICollection<Ticket>? tickets)
+    public User(Guid id, string login, string password, string name, Guid? avatarId, string role)
     {
         Id = id;
         Login = login;
@@ -25,8 +25,6 @@ public class User
         Name = name;
         AvatarId = avatarId;
         Role = role;
-        Feedbacks = feedbacks;
-        Tickets = tickets;
     }
 
     public ICollection<Feedback>? Feedbacks { get; set; }
