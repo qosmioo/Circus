@@ -5,7 +5,7 @@ namespace Circus.Database.Repositories.Converters;
 
 public static class FeedbackConverter
 {
-    public static CoreFeedback? ConvertToCore(DbFeedback? dbFeedback)
+    public static CoreFeedback? ConvertFeedbackToCore(DbFeedback? dbFeedback)
     {
         if (dbFeedback is null)
             return null;
@@ -18,7 +18,7 @@ public static class FeedbackConverter
             dbFeedback.Rating);
     }
 
-    public static DbFeedback? ConvertToDb(CoreFeedback? coreFeedback)
+    public static DbFeedback? ConvertFeedbackToDb(CoreFeedback? coreFeedback)
     {
         if (coreFeedback is null)
             return null;
