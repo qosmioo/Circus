@@ -15,14 +15,8 @@ public class Ticket
     public int Price { get; set; }
     
     public bool IsAvailable { get; set; }
-    
-    public Session? Session { get; set; }
-    
-    public User? User { get; set; }
-    
-    public Seat? Seat { get; set; }
 
-    public Ticket(Guid id, Guid seatId, Guid sessionId, Guid userId, int price, bool isAvailable, Session session, User? user, Seat seat)
+    public Ticket(Guid id, Guid seatId, Guid sessionId, Guid userId, int price, bool isAvailable)
     {
         Id = id;
         SeatId = seatId;
@@ -30,8 +24,5 @@ public class Ticket
         UserId = userId;
         Price = price;
         IsAvailable = isAvailable;
-        Session = session;
-        User = user;
-        Seat = seat;
     }
 }

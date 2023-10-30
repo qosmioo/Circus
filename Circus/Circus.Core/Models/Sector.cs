@@ -11,16 +11,13 @@ public class Sector
     
     public string Name { get; set; }
     
-    public Hall? Hall { get; set; }
-    
     public List<Row>? Rows { get; set; }
 
-    public Sector(Guid id, Guid hallId, string name, Hall hall, List<Row> rows)
+    public Sector(Guid id, Guid hallId, string name, List<Row> rows)
     {
         Id = id;
         HallId = hallId;
         Name = name;
-        Hall = hall;
         Rows = rows;
     }
 }

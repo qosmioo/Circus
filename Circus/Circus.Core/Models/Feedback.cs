@@ -15,13 +15,8 @@ public class Feedback
     public DateTimeOffset CreatedAt { get; set; }
     
     public int Rating { get; set; }
-    
-    public Show? Show { get; set; }
-    
-    public User? User { get; set; }
 
-    public Feedback(Guid id, string text, Guid showId, Guid userId, DateTimeOffset createdAt, int rating, Show? show, 
-        User? user)
+    public Feedback(Guid id, string text, Guid showId, Guid userId, DateTimeOffset createdAt, int rating)
     {
         Id = id;
         Text = text;
@@ -29,7 +24,5 @@ public class Feedback
         UserId = userId;
         CreatedAt = createdAt;
         Rating = rating;
-        Show = show;
-        User = user;
-    }
+        }
 }
