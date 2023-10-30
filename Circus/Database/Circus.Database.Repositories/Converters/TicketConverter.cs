@@ -3,7 +3,7 @@ using CoreTicket = Circus.Core.Models.Ticket;
 
 namespace Circus.Database.Repositories.Converters;
 
-public class TicketConverter
+public static class TicketConverter
 {
     public static CoreTicket? ConvertTicketToCore(DbTicket? dbTicket)
     {

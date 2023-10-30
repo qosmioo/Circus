@@ -3,9 +3,9 @@ using DbActorShow = Circus.Database.Models.ActorShow;
 
 namespace Circus.Database.Repositories.Converters;
 
-public class ActorShowConverter
+public static class ActorShowConverter
 {
-    public static CoreActorShow? ConvertShowToCore(DbActorShow? dbActorShow)
+    public static CoreActorShow? ConvertActorShowToCore(DbActorShow? dbActorShow)
     {
         if (dbActorShow is null)
             return null;
@@ -16,7 +16,7 @@ public class ActorShowConverter
             dbActorShow.Role);
     }
 
-    public static DbActorShow? ConvertShowToDb(CoreActorShow? coreActorShow)
+    public static DbActorShow? ConvertActorShowToDb(CoreActorShow? coreActorShow)
     {
         if (coreActorShow is null)
             return null;
