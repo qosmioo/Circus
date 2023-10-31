@@ -12,7 +12,10 @@ public class File
     
     public string Name { get; set; }
 
-    public File(Guid id, byte[] data, string extension, string name)
+    public File(Guid id, 
+        byte[] data, 
+        string extension, 
+        string name)
     {
         Id = id;
         Data = data;
