@@ -9,11 +9,11 @@ public class Hall
     
     public string Name { get; set; }
     
-    public List<Session>? Sessions { get; set; }
+    public List<Session> Sessions { get; set; }
 
-    public List<Sector>? Sectors { get; set; }
+    public List<Sector> Sectors { get; set; }
 
-    public Hall(Guid id, string name, List<Session>? sessions, List<Sector>? sectors)
+    public Hall(Guid id, string name, List<Session> sessions, List<Sector> sectors)
     {
         Id = id;
         Name = name;

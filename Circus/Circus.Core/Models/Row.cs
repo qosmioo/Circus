@@ -11,7 +11,7 @@ public class Row
     
     public int RowNumber { get; set; }
     
-    public List<Seat>? Seats { get; set; }
+    public List<Seat> Seats { get; set; }
 
     public Row(Guid id, Guid sectorId, int rowNumber, List<Seat> seats)
     {

@@ -16,13 +16,20 @@ public class Show
     
     public Guid PosterId { get; set; }
     
-    public List<Feedback>? Feedbacks { get; set; }
+    public List<Feedback> Feedbacks { get; set; }
     
-    public List<Session>? Sessions { get; set; }
+    public List<Session> Sessions { get; set; }
     
-    public List<ActorShow>? ActorShows { get; set; }
+    public List<ActorShow> ActorShows { get; set; }
 
-    public Show(Guid id, string name, string description, TimeSpan duration, Guid posterId, List<Feedback>? feedbacks, List<Session>? sessions, List<ActorShow>? actorShows)
+    public Show(Guid id, 
+        string name, 
+        string description, 
+        TimeSpan duration, 
+        Guid posterId, 
+        List<Feedback> feedbacks, 
+        List<Session> sessions, 
+        List<ActorShow> actorShows)
     {
         Id = id;
         Name = name;

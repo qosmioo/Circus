@@ -11,7 +11,7 @@ public class Sector
     
     public string Name { get; set; }
     
-    public List<Row>? Rows { get; set; }
+    public List<Row> Rows { get; set; }
 
     public Sector(Guid id, Guid hallId, string name, List<Row> rows)
     {
