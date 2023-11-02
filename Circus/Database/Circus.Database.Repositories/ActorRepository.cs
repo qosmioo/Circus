@@ -34,6 +34,7 @@ public class ActorRepository : IActorRepository
     public async Task<CoreActor?> FindActorAsync(Guid id)
     {
         var actor = await _dbContext.Actors
+            .AsNoTracking()
             .Include(a => a.ActorShows)
             .FirstOrDefaultAsync(a => a.Id == id);
 
@@ -43,6 +44,7 @@ public class ActorRepository : IActorRepository
     public async Task<List<CoreActor>> GetActorsAsync()
     {
         var actors = await _dbContext.Actors
+            .AsNoTracking()
             .Include(a => a.ActorShows)
             .ToListAsync();
 
@@ -64,9 +66,9 @@ public class ActorRepository : IActorRepository
         return ActorConverter.ConvertActorToCore(actor)!;
     }
 
-    public async Task<bool> ExistAsync(Guid id)
+    public Task<bool> ExistAsync(Guid id)
     {
-        return await _dbContext.Actors.AnyAsync(a => a.Id == id);
+        return _dbContext.Actors.AnyAsync(a => a.Id == id);
     }
 
     public async Task AddAvatarAsync(Guid actorId, Guid avatarId)
