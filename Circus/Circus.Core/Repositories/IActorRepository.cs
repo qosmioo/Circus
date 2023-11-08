@@ -14,9 +14,9 @@ public interface IActorRepository
 
     Task<Actor?> FindActorAsync(Guid id);
 
-    Task<List<Actor>> GetActors();
+    Task<List<Actor>> GetActorsAsync();
     
-    Task RemoveActorAsync();
+    Task<Actor> RemoveActorAsync(Guid id);
 
     Task<bool> ExistAsync(Guid id);
     

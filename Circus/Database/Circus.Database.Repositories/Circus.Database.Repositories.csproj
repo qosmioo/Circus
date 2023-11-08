@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Circus.Core\Circus.Core.csproj" />
+      <ProjectReference Include="..\Circus.Database.Context\Circus.Database.Context.csproj" />
       <ProjectReference Include="..\Circus.Database.Models\Circus.Database.Models.csproj" />
     </ItemGroup>
 

@@ -16,7 +16,7 @@ public interface ITicketRepository
 
     Task<List<Ticket>> GetTicketsAsync();
 
-    Task<Ticket> FindTicketAsync(Guid id);
+    Task<Ticket?> FindTicketAsync(Guid id);
 
     Task<Ticket> RemoveTicketAsync(Guid id);
 
