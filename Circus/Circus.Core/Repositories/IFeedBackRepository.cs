@@ -20,9 +20,9 @@ public interface IFeedBackRepository
         Guid userId,
         int rating);
 
-    Task<List<Feedback>> GetFeedbacks(Guid showId);
+    Task<List<Feedback>> GetFeedbacksAsync(Guid showId);
 
-    Task<Feedback> RemoveFeedback(Guid feedBackId);
+    Task<Feedback> RemoveFeedbackAsync(Guid feedBackId);
     
     Task<bool> ExistsAsync(Guid feedbackId);
 }

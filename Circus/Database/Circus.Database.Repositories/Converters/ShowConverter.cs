@@ -10,7 +10,7 @@ namespace Circus.Database.Repositories.Converters;
 
 public static class ShowConverter
 {
-    public static CoreShow? ConvertShowToDb(DbShow? dbShow)
+    public static CoreShow? ConvertShowToCore(DbShow? dbShow)
     {
         if (dbShow is null)
             return null;
