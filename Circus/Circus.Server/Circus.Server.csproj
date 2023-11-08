@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,7 +21,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Circus.Core\Circus.Core.csproj" />
       <ProjectReference Include="..\Database\Circus.Database.Context\Circus.Database.Context.csproj" />
+      <ProjectReference Include="..\Database\Circus.Database.Repositories\Circus.Database.Repositories.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
     </ItemGroup>
 
     
