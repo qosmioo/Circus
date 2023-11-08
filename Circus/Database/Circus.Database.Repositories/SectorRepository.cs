@@ -31,7 +31,7 @@ public class SectorRepository : ISectorRepository
     {
         var sectors = await _dbContext.Sectors
             .AsNoTracking()
-            .Include(r => r.Rows)
+            .Include(s => s.Rows)
             .ToListAsync();
         
         return sectors.Select(SectorConverter.ConvertSectorToCore).ToList()!;

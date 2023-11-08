@@ -15,11 +15,12 @@ public interface IShowRepository
 
     Task<List<Show>> GetShowsAsync();
 
-    Task<Show> FindShowAsync(Guid id);
+    Task<Show?> FindShowAsync(Guid id);
 
     Task<Show> RemoveShowAsync(Guid id);
 
-    Task UpdateShowAsync(string name,
+    Task UpdateShowAsync(Guid id,
+        string name,
         string description,
         TimeSpan duration,
         Guid posterId);

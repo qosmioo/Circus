@@ -16,11 +16,16 @@ public interface IUserRepository
 
     Task<List<User>> GetUsersAsync();
 
-    Task<User> FindUserAsync(Guid id);
+    Task<User?> FindUserAsync(Guid id);
 
     Task<User> RemoveUserAsync(Guid id);
 
     Task<bool> ExistAsync(Guid id);
 
-    Task UpdateUserAsync(Guid id);
+    Task UpdateUserAsync(Guid id,
+        string login,
+        string password,
+        string name,
+        string role,
+        Guid? avatarId = null);
 }

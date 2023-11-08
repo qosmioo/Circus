@@ -29,7 +29,7 @@ public class SeatRepository : ISeatRepository
     {
         var seats = await _dbContext.Seats
             .AsNoTracking()
-            .Include(r => r.Tickets)
+            .Include(s => s.Tickets)
             .ToListAsync();
         
         return seats.Select(SeatConverter.ConvertSeatToCore).ToList()!;
