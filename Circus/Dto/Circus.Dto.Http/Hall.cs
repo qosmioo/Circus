@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace Circus.Dro.Http;
+
+namespace Circus.Dto.Http;
 
 [DataContract]
-public class Sector
+public class Hall
 {
     [Required]
     [DataMember(Name = "id")]
     public Guid Id { get; set; }
     
     [Required]
-    [DataMember(Name = "hallId")]
-    public Guid HallId { get; set; }
-    
-    [Required]
     [DataMember(Name = "name")]
     public string Name { get; set; }
-    
-    [Required]
-    [DataMember(Name = "rows")]
-    public List<Row> Rows { get; set; }
 
-    public Sector(Guid id, Guid hallId, string name, List<Row> rows)
+    [Required]
+    [DataMember(Name = "sessions")]
+    public List<Session> Sessions { get; set; }
+
+    [Required]
+    [DataMember(Name = "sectors")]
+    public List<Sector> Sectors { get; set; }
+    
+    public Hall(Guid id, string name, List<Session> sessions, List<Sector> sectors)
     {
         Id = id;
-        HallId = hallId;
         Name = name;
-        Rows = rows;
+        Sessions = sessions;
+        Sectors = sectors;
     }
 }

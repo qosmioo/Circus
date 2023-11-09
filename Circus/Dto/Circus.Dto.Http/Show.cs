@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace Circus.Dro.Http;
+namespace Circus.Dto.Http;
 
 [DataContract]
 public class Show
