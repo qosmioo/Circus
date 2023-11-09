@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circus.Database.Repositorie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dto", "Dto", "{FD530113-884C-4330-8462-189909D2EB8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circus.Dro.Http", "Dto\Circus.Dro.Http\Circus.Dro.Http.csproj", "{2E93AE00-9707-490B-9BA9-F93829EA9D0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circus.Dto.Http", "Dto\Circus.Dto.Http\Circus.Dto.Http.csproj", "{2E93AE00-9707-490B-9BA9-F93829EA9D0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circus.Core", "Circus.Core\Circus.Core.csproj", "{D388A055-130A-4597-A1F7-F7A6469697B6}"
 EndProject

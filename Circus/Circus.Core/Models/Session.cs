@@ -13,9 +13,9 @@ public class Session
     
     public DateTimeOffset StartsAt { get; set; }
     
-    public List<Ticket>? Tickets { get; set; }
+    public List<Ticket> Tickets { get; set; }
 
-    public Session(Guid id, Guid showId, Guid hallId, DateTimeOffset startsAt, List<Ticket>? tickets)
+    public Session(Guid id, Guid showId, Guid hallId, DateTimeOffset startsAt, List<Ticket> tickets)
     {
         Id = id;
         ShowId = showId;
