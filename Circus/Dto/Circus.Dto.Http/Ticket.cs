@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Circus.Core.Models;
 
-namespace Circus.Dto.Http;
+namespace Circus.Dro.Http;
 
 [DataContract]
 public class Ticket
