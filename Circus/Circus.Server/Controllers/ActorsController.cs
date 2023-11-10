@@ -13,14 +13,12 @@ namespace Circus.Server.Controllers;
 public class ActorsController : ControllerBase
 {
     private readonly IActorRepository _actorRepository;
-    private readonly IActorShowRepository _actorShowRepository;
     private readonly ILogger<ActorsController> _logger;
 
     public ActorsController(IActorRepository actorRepository, ILogger<ActorsController> logger, IActorShowRepository actorShowRepository)
     {
         _actorRepository = actorRepository;
         _logger = logger;
-        _actorShowRepository = actorShowRepository;
     }
 
     [HttpGet]
