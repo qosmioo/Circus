@@ -38,4 +38,25 @@ public class ActorsController : ControllerBase
             return StatusCode(500);
         }
     }
+    
+    [HttpGet]
+    [Route("{actorId:guid}")]
+    public async Task<IActionResult> GetActorAsync([FromRoute] Guid actorId)
+    {
+        try
+        {
+            var actor = await _actorRepository.FindActorAsync(actorId);
+
+            if (actor == null)
+                return NotFound();
+
+            return Ok(ActorConverter.ConvertActorToDto(actor));
+        }
+        catch (Exception exception)
+        {
+            _logger.LogError(exception, "Error in method: {MethodName}", nameof(GetActorAsync));
+
+            return StatusCode(500);
+        }
+    }
 }
