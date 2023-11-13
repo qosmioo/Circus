@@ -64,6 +64,18 @@ public class SessionRepository : ISessionRepository
         return SessionConverter.ConvertSessionToCore(session)!;
     }
 
+    public async Task UpdateSessionAsync(Guid id, Guid showId, Guid hallId, DateTimeOffset startsAt)
+    {
+        var session = await _dbContext.Sessions.FindAsync(id);
+
+        if (session == null)
+            throw new InvalidOperationException($"Session with id: {id} not found.");
+
+        session.ShowId = showId;
+        session.HallId = hallId;
+        session.StartsAt = startsAt;
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Sessions.AnyAsync(s => s.Id == id);

@@ -18,5 +18,10 @@ public interface ISessionRepository
 
     Task<Session> RemoveSessionAsync(Guid id);
 
+    Task UpdateSessionAsync(Guid id,
+        Guid showId,
+        Guid hallId,
+        DateTimeOffset startsAt);
+
     Task<bool> ExistAsync(Guid id);
 }

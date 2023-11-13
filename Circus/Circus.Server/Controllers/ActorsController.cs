@@ -65,29 +65,35 @@ public class ActorsController : ControllerBase
     }
 
     [HttpPut]
-    [Route("{actorId:guid}")]
-    public async Task<IActionResult> PutActorAsync([FromRoute] Guid actorId, [FromBody] Actor actor)
+    public async Task<IActionResult> PutActorAsync([FromBody] Actor actor)
     {
         try
         {
-            if (await _actorRepository.ExistAsync(actorId))
+            if (await _actorRepository.ExistAsync(actor.Id))
             {
-                await _actorRepository.UpdateActorAsync(actorId, actor.Name, 
+                await _actorRepository.UpdateActorAsync(actor.Id, actor.Name, 
                     actor.Description, actor.AvatarId);
                 
+                foreach (var actorShow in actor.ActorShows)
+                {
+                    await _actorShowRepository.UpdateActorShowAsync(actor.Id, 
+                        actorShow.ShowId,
+                        actorShow.ActorId,
+                        actorShow.Role);
+                }
             }
             else
             {
-                await _actorRepository.AddActorAsync(actorId, actor.Name, 
+                await _actorRepository.AddActorAsync(actor.Id, actor.Name, 
                     actor.Description, actor.AvatarId);
-            }
-
-            foreach (var actorShows in actor.ActorShows)
-            {
-                await _actorShowRepository.AddActorShowAsync(Guid.NewGuid(), 
-                    actorShows.ShowId,
-                    actorShows.ActorId,
-                    actorShows.Role);
+                
+                foreach (var actorShow in actor.ActorShows)
+                {
+                    await _actorShowRepository.AddActorShowAsync(Guid.NewGuid(), 
+                        actorShow.ShowId,
+                        actorShow.ActorId,
+                        actorShow.Role);
+                }
             }
             
             return Ok();

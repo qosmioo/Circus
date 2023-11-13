@@ -19,6 +19,13 @@ public interface ITicketRepository
     Task<Ticket?> FindTicketAsync(Guid id);
 
     Task<Ticket> RemoveTicketAsync(Guid id);
+    
+    Task UpdateTicketsAsync(Guid id, 
+        Guid seatId, 
+        Guid sessionId, 
+        Guid userId, 
+        int price, 
+        bool isAvailable);
 
     Task<bool> ExistAsync(Guid id);
 }
