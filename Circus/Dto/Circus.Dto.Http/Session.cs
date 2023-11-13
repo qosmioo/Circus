@@ -31,7 +31,7 @@ public class Session
     public Session(Guid id, 
         Guid showId, 
         Guid hallId, 
-        DateTimeOffset startsAt, List<Ticket> tickets)
+        DateTimeOffset startsAt, List<Ticket?> tickets)
     {
         Id = id;
         ShowId = showId;

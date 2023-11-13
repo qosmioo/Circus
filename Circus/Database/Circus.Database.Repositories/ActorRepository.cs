@@ -66,6 +66,20 @@ public class ActorRepository : IActorRepository
         return ActorConverter.ConvertActorToCore(actor)!;
     }
 
+    public async Task UpdateActorAsync(Guid id, string name, string description, Guid? avatarId = null)
+    {
+        var actor = await _dbContext.Actors.FindAsync(id);
+
+        if (actor == null)
+            throw new InvalidOperationException($"Actor with id: {id} was not found");
+
+        actor.Name = name;
+        actor.Description = description;
+        actor.AvatarId = avatarId;
+
+        await _dbContext.SaveChangesAsync();
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Actors.AnyAsync(a => a.Id == id);

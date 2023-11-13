@@ -11,6 +11,6 @@ public static class ActorConverter
         
         var dtoActorShows = actor.ActorShows.Select(ActorShowConverter.ConvertActorShowToDto).ToList();
 
-        return new Actor(actor.Id, actor.Name, actor.Description, actor.AvatarId, dtoActorShows!);
+        return new Actor(actor.Id, actor.Name, actor.Description, actor.AvatarId, dtoActorShows);
     }
 }
