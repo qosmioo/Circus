@@ -63,6 +63,14 @@ public class SectorRepository : ISectorRepository
         return SectorConverter.ConvertSectorToCore(sector)!;
     }
 
+    public async Task UpdateSectorAsync(Guid id, Guid hallId, string name)
+    {
+        var sector = await _dbContext.Sectors.FindAsync(id);
+
+        if (sector == null)
+            throw new InvalidOperationException($"Sector with id: {id} was not found");
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Sectors.AnyAsync(s => s.Id == id);

@@ -15,5 +15,7 @@ public interface ISectorRepository
 
     Task<Sector> RemoveSectorAsync(Guid id);
 
+    Task UpdateSectorAsync(Guid id, Guid hallId, string name);
+
     Task<bool> ExistAsync(Guid id);
 }

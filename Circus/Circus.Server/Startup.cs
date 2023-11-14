@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Circus.Core.Repositories;
 using Circus.Database.Context;
 using Circus.Database.Repositories;
+using Circus.Dto.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,15 @@ namespace Circus.Server
                 opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IActorRepository, ActorRepository>();
+            services.AddScoped<IActorShowRepository, ActorShowRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<IHallRepository, HallRepository>();
+            services.AddScoped<IRowRepository, RowRepository>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
+            services.AddScoped<ISectorRepository, SectorRepository>();
+            services.AddScoped<ISessionRepository, SessionRepository>();
+            services.AddScoped<IShowRepository, ShowRepository>();
+            services.AddScoped<ITicketRepository, TicketRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

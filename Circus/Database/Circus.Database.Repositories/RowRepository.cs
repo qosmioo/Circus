@@ -20,7 +20,7 @@ public class RowRepository : IRowRepository
         _dbContext = dbContext;
     }
 
-    public async Task AddRowRepository(Guid id, Guid sectorId, int rowNumber)
+    public async Task AddRowAsync(Guid id, Guid sectorId, int rowNumber)
     {
         await _dbContext.Rows.AddAsync(new Row(id, sectorId, rowNumber));
 
@@ -57,6 +57,19 @@ public class RowRepository : IRowRepository
         await _dbContext.SaveChangesAsync();
 
         return RowConverter.ConvertRowToCore(row)!;
+    }
+
+    public async Task UpdateRowAsync(Guid id, Guid sectorId, int rowNumber)
+    {
+        var row = await _dbContext.Rows.FindAsync(id);
+
+        if (row == null)
+            throw new InvalidOperationException($"Row with id: {id} was not found");
+
+        row.SectorId = sectorId;
+        row.RowNumber = rowNumber;
+
+        await _dbContext.SaveChangesAsync();
     }
 
     public Task<bool> ExistAsync(Guid id)

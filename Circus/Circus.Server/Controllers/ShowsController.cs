@@ -18,15 +18,15 @@ public class ShowsController : ControllerBase
 
     private readonly ISessionRepository _sessionRepository;
 
-    private readonly IFeedBackRepository _feedBackRepository;
+    private readonly IFeedbackRepository _feedbackRepository;
 
-    public ShowsController(IShowRepository showRepository, ILogger<ShowRepository> logger, IActorShowRepository actorShowRepository, ISessionRepository sessionRepository, IFeedBackRepository feedBackRepository)
+    public ShowsController(IShowRepository showRepository, ILogger<ShowRepository> logger, IActorShowRepository actorShowRepository, ISessionRepository sessionRepository, IFeedbackRepository feedbackRepository)
     {
         _showRepository = showRepository;
         _logger = logger;
         _actorShowRepository = actorShowRepository;
         _sessionRepository = sessionRepository;
-        _feedBackRepository = feedBackRepository;
+        _feedbackRepository = feedbackRepository;
     }
 
     [HttpGet]
@@ -106,7 +106,7 @@ public class ShowsController : ControllerBase
 
                 foreach (var feedback in show.Feedbacks)
                 {
-                    await _feedBackRepository.UpdateFeedbackAsync(feedback.Id,
+                    await _feedbackRepository.UpdateFeedbackAsync(feedback.Id,
                         feedback.Text,
                         feedback.ShowId,
                         feedback.UserId,
@@ -136,7 +136,7 @@ public class ShowsController : ControllerBase
 
                 foreach (var feedback in show.Feedbacks)
                 {
-                    await _feedBackRepository.AddFeedbackAsync(feedback.Id,
+                    await _feedbackRepository.AddFeedbackAsync(feedback.Id,
                         feedback.Text,
                         feedback.ShowId,
                         feedback.UserId,

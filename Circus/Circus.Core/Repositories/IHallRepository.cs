@@ -9,10 +9,13 @@ public interface IHallRepository
 {
     Task AddHallAsync(Guid id, string name);
 
-    Task<List<Hall>> GetHalls();
+    Task<List<Hall>> GetHallsAsync();
 
-    Task<Hall?> FindHall(Guid id);
+    Task<Hall?> FindHallAsync(Guid id);
+
+    Task UpdateHallAsync(Guid id, string name);
 
     Task<bool> ExistAsync(Guid id);
 
+    Task<Hall> RemoveHallAsync(Guid hallId);
 }

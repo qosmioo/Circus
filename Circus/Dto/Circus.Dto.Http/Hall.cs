@@ -25,7 +25,7 @@ public class Hall
     [DataMember(Name = "sectors")]
     public List<Sector> Sectors { get; set; }
     
-    public Hall(Guid id, string name, List<Session> sessions, List<Sector> sectors)
+    public Hall(Guid id, string name, List<Session?> sessions, List<Sector?> sectors)
     {
         Id = id;
         Name = name;

@@ -9,13 +9,13 @@ namespace Circus.Server.Controllers;
 [Route("api/show/{showId:guid}")]
 public class FeedbacksController : ControllerBase
 {
-    private readonly IFeedBackRepository _feedBackRepository;
+    private readonly IFeedbackRepository _feedbackRepository;
 
     private readonly Logger<FeedbacksController> _logger;
 
-    public FeedbacksController(IFeedBackRepository feedBackRepository, Logger<FeedbacksController> logger)
+    public FeedbacksController(IFeedbackRepository feedbackRepository, Logger<FeedbacksController> logger)
     {
-        _feedBackRepository = feedBackRepository;
+        _feedbackRepository = feedbackRepository;
         _logger = logger;
     }
 
@@ -25,7 +25,7 @@ public class FeedbacksController : ControllerBase
     {
         try
         {
-            var feedbacks = await _feedBackRepository.GetFeedbacksAsync(showId);
+            var feedbacks = await _feedbackRepository.GetFeedbacksAsync(showId);
             var dtoFeedbacks = feedbacks.Select(FeedbackConverter.ConvertFeedbackToDto).ToList();
 
             return Ok(dtoFeedbacks);
@@ -44,7 +44,7 @@ public class FeedbacksController : ControllerBase
     {
         try
         {
-            await _feedBackRepository.RemoveFeedbackAsync(feedbackId);
+            await _feedbackRepository.RemoveFeedbackAsync(feedbackId);
 
             return Ok();
         }
@@ -71,9 +71,9 @@ public class FeedbacksController : ControllerBase
     {
         try
         {
-            if (await _feedBackRepository.ExistsAsync(feedback.Id))
+            if (await _feedbackRepository.ExistsAsync(feedback.Id))
             {
-                await _feedBackRepository.UpdateFeedbackAsync(feedback.Id, 
+                await _feedbackRepository.UpdateFeedbackAsync(feedback.Id, 
                     feedback.Text, 
                     showId,
                     feedback.UserId, 
@@ -81,7 +81,7 @@ public class FeedbacksController : ControllerBase
             }
             else
             {
-                await _feedBackRepository.AddFeedbackAsync(feedback.Id, 
+                await _feedbackRepository.AddFeedbackAsync(feedback.Id, 
                     feedback.Text, 
                     showId,
                     feedback.UserId, 

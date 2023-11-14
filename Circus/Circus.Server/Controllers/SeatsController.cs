@@ -5,18 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Circus.Server.Controllers;
 
-
 [ApiController]
 [Route("api/seat")]
 public class SeatsController : ControllerBase
 {
     private readonly ISeatRepository _seatRepository;
 
-    private readonly Logger<SeatsController> _logger;
+    private readonly ILogger<SeatsController> _logger;
 
     private readonly ITicketRepository _ticketRepository;
 
-    public SeatsController(ISeatRepository seatRepository, Logger<SeatsController> logger, 
+    public SeatsController(ISeatRepository seatRepository, ILogger<SeatsController> logger, 
         ITicketRepository ticketRepository)
     {
         _seatRepository = seatRepository;
@@ -63,6 +62,7 @@ public class SeatsController : ControllerBase
         }
     }
     
+    [HttpPut]
     public async Task<IActionResult> PutSeatAsync([FromBody] Seat seat)
     {
         try

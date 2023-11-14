@@ -27,7 +27,7 @@ public class HallRepository : IHallRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<List<CoreHall>> GetHalls()
+    public async Task<List<CoreHall>> GetHallsAsync()
     {
         var halls = await _dbContext.Halls
             .AsNoTracking()
@@ -38,7 +38,7 @@ public class HallRepository : IHallRepository
         return halls.Select(HallConverter.ConvertHallToCore).ToList()!;
     }
 
-    public async Task<CoreHall?> FindHall(Guid id)
+    public async Task<CoreHall?> FindHallAsync(Guid id)
     {
         var hall = await _dbContext.Halls
             .Include(h => h.Id == id)
@@ -47,8 +47,33 @@ public class HallRepository : IHallRepository
         return HallConverter.ConvertHallToCore(hall);
     }
 
+    public async Task UpdateHallAsync(Guid id, string name)
+    {
+        var hall = await _dbContext.Halls.FindAsync(id);
+
+        if (hall == null)
+            throw new InvalidOperationException($"Hall with id: {id} not found.");
+
+        hall.Name = name;
+
+        await _dbContext.SaveChangesAsync();
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Halls.AnyAsync(h => h.Id == id);
+    }
+
+    public async Task<CoreHall> RemoveHallAsync(Guid hallId)
+    {
+        var hall = await _dbContext.Halls.FirstOrDefaultAsync(h => h.Id == hallId);
+
+        if (hall == null)
+            throw new InvalidOperationException($"Hall with id: {hallId} not found.");
+
+        _dbContext.Remove(hall);
+        await _dbContext.SaveChangesAsync();
+
+        return HallConverter.ConvertHallToCore(hall)!;
     }
 }
