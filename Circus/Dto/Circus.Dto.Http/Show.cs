@@ -46,7 +46,7 @@ public class Show
         string name, 
         string description, 
         TimeSpan duration, 
-        Guid posterId, List<Feedback> feedbacks, List<Session> sessions, List<ActorShow> actorShows)
+        Guid posterId, List<Feedback?> feedbacks, List<Session?> sessions, List<ActorShow?> actorShows)
     {
         Id = id;
         Name = name;

@@ -62,6 +62,17 @@ public class SeatRepository : ISeatRepository
         return SeatConverter.ConvertSeatToCore(seat)!;
     }
 
+    public async Task UpdateSeatAsync(Guid id, Guid rowId, int seatNumber)
+    {
+        var seat = await _dbContext.Seats.FindAsync(id);
+
+        if (seat == null)
+            throw new InvalidOperationException($"Seat with id: {id} was not found");
+
+        seat.RowId = rowId;
+        seat.SeatNumber = seatNumber;
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Seats.AnyAsync(s => s.Id == id);

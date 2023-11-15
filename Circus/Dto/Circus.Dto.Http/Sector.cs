@@ -24,7 +24,7 @@ public class Sector
     [DataMember(Name = "rows")]
     public List<Row> Rows { get; set; }
 
-    public Sector(Guid id, Guid hallId, string name, List<Row> rows)
+    public Sector(Guid id, Guid hallId, string name, List<Row?> rows)
     {
         Id = id;
         HallId = hallId;

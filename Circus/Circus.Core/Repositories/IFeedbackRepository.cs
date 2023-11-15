@@ -5,7 +5,7 @@ using Circus.Core.Models;
 
 namespace Circus.Core.Repositories;
 
-public interface IFeedBackRepository
+public interface IFeedbackRepository
 {
     Task AddFeedbackAsync(Guid id, 
         string text, 

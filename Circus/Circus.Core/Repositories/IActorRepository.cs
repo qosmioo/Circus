@@ -18,6 +18,11 @@ public interface IActorRepository
     
     Task<Actor> RemoveActorAsync(Guid id);
 
+    Task UpdateActorAsync(Guid id,
+        string name,
+        string description,
+        Guid? avatarId = null);
+
     Task<bool> ExistAsync(Guid id);
     
     Task AddAvatarAsync(Guid actorId, Guid avatarId);

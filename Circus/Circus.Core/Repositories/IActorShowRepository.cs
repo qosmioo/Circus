@@ -9,4 +9,9 @@ public interface IActorShowRepository
         Guid showId,
         Guid actorId,
         string role);
+
+    Task UpdateActorShowAsync(Guid id,
+        Guid showId,
+        Guid actorId,
+        string role);
 }

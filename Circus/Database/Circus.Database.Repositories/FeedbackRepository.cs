@@ -12,7 +12,7 @@ using CoreFeedback = Circus.Core.Models.Feedback;
 
 namespace Circus.Database.Repositories;
 
-public class FeedbackRepository : IFeedBackRepository
+public class FeedbackRepository : IFeedbackRepository
 {
     private readonly CircusContext _dbContext;
 

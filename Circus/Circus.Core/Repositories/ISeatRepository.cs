@@ -15,5 +15,7 @@ public interface ISeatRepository
 
     Task<Seat> RemoveSeatAsync(Guid id);
 
+    Task UpdateSeatAsync(Guid id, Guid rowId, int seatNumber);
+    
     Task<bool> ExistAsync(Guid id);
 }

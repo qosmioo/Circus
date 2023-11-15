@@ -24,7 +24,7 @@ public class Seat
     [DataMember(Name = "tickets")]
     public List<Ticket> Tickets { get; set; }
     
-    public Seat(Guid id, Guid rowId, int seatNumber, List<Ticket> tickets)
+    public Seat(Guid id, Guid rowId, int seatNumber, List<Ticket?> tickets)
     {
         Id = id;
         RowId = rowId;

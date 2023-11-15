@@ -21,4 +21,18 @@ public class ActorShowRepository : IActorShowRepository
 
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task UpdateActorShowAsync(Guid id, Guid showId, Guid actorId, string role)
+    {
+        var actorShow = await _dbContext.ActorShows.FindAsync(id);
+
+        if (actorShow == null)
+            throw new InvalidOperationException($"ActorShow with id: {id} not found");
+
+        actorShow.ShowId = showId;
+        actorShow.ActorId = actorId;
+        actorShow.Role = role;
+
+        await _dbContext.SaveChangesAsync();
+    }
 }

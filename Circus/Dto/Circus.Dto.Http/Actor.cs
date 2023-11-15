@@ -27,7 +27,7 @@ public class Actor
     [DataMember(Name = "actorShows")]
     public List<ActorShow> ActorShows { get; set; }
 
-    public Actor(Guid id, string name, string description, Guid? avatarId, List<ActorShow> actorShows)
+    public Actor(Guid id, string name, string description, Guid? avatarId, List<ActorShow?> actorShows)
     {
         Id = id;
         Name = name;

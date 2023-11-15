@@ -60,6 +60,25 @@ public class TicketRepository : ITicketRepository
         return TicketConverter.ConvertTicketToCore(ticket)!;
     }
 
+    public async Task UpdateTicketsAsync(Guid id, 
+        Guid seatId, 
+        Guid sessionId, 
+        Guid userId, 
+        int price, 
+        bool isAvailable)
+    {
+        var ticket = await _dbContext.Tickets.FindAsync(id);
+
+        if (ticket == null)
+            throw new InvalidOperationException($"Ticket with id: {id} was not found");
+
+        ticket.SeatId = seatId;
+        ticket.SessionId = sessionId;
+        ticket.UserId = userId;
+        ticket.Price = price;
+        ticket.IsAvailable = isAvailable;
+    }
+
     public Task<bool> ExistAsync(Guid id)
     {
         return _dbContext.Tickets.AnyAsync(t => t.Id == id);
