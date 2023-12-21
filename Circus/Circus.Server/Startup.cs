@@ -49,6 +49,7 @@ namespace Circus.Server
             services.AddScoped<ISessionRepository, SessionRepository>();
             services.AddScoped<IShowRepository, ShowRepository>();
             services.AddScoped<ITicketRepository, TicketRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,8 +59,8 @@ namespace Circus.Server
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Circus.Server v1"));
-
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "Circus.Server v1"));
             }
 
             app.UseHttpsRedirection();
@@ -69,7 +70,6 @@ namespace Circus.Server
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
         }
     }
 }

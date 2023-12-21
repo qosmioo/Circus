@@ -27,7 +27,7 @@ public class ShowRepository : IShowRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<List<CoreShow>> GetShowsAsync()
+    public async Task<List<CoreShow>> GetShowsAsync() // добавить инклюды 
     {
         var shows = await _dbContext.Shows
             .AsNoTracking()
