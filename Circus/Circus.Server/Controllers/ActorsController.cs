@@ -1,10 +1,7 @@
 ﻿using Circus.Core.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Circus.Core.Models;
 using Circus.Server.Controllers.Converters;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Actor = Circus.Dto.Http.Actor;
-using ActorShow = Circus.Dto.Http.ActorShow;
 
 namespace Circus.Server.Controllers;
 

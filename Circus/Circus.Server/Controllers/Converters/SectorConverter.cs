@@ -4,13 +4,23 @@ namespace Circus.Server.Controllers.Converters;
 
 public static class SectorConverter
 {
-    public static Sector? ConvertSectorToDto(Core.Models.Sector? sector)
+    public static Sector? ConvertSectorToDto(Core.Models.Sector? coreSector)
     {
-        if (sector == null)
+        if (coreSector == null)
             return null;
 
-        var dtoRows = sector.Rows.Select(RowConverter.ConvertRowToDto).ToList();
+        var dtoRows = coreSector.Rows.Select(RowConverter.ConvertRowToDto).ToList();
 
-        return new Sector(sector.Id, sector.HallId, sector.Name, dtoRows);
+        return new Sector(coreSector.Id, coreSector.HallId, coreSector.Name, dtoRows);
+    }
+    
+    public static Core.Models.Sector? ConvertSectorToCore(Sector? dtoSector)
+    {
+        if (dtoSector == null)
+            return null;
+
+        var coreRows = dtoSector.Rows.Select(RowConverter.ConvertRowToCore).ToList();
+
+        return new Core.Models.Sector(dtoSector.Id, dtoSector.HallId, dtoSector.Name, coreRows!);
     }
 }

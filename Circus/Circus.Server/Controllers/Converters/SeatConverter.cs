@@ -4,13 +4,23 @@ namespace Circus.Server.Controllers.Converters;
 
 public static class SeatConverter
 {
-    public static Seat? ConvertSeatToDto(Core.Models.Seat? seat)
+    public static Seat? ConvertSeatToDto(Core.Models.Seat? coreSeat)
     {
-        if (seat == null)
+        if (coreSeat == null)
             return null;
 
-        var dtoTickets = seat.Tickets.Select(TicketConverter.ConvertTicketToDto).ToList();
+        var dtoTickets = coreSeat.Tickets.Select(TicketConverter.ConvertTicketToDto).ToList();
 
-        return new Seat(seat.Id, seat.RowId, seat.SeatNumber, dtoTickets);
+        return new Seat(coreSeat.Id, coreSeat.RowId, coreSeat.SeatNumber, dtoTickets);
+    }
+
+    public static Core.Models.Seat? ConvertSeatToCore(Seat? dtoSeat)
+    {
+        if (dtoSeat == null)
+            return null;
+        
+        var coreTickets = dtoSeat.Tickets.Select(TicketConverter.ConvertTicketToCore).ToList();
+
+        return new Core.Models.Seat(dtoSeat.Id, dtoSeat.RowId, dtoSeat.SeatNumber, coreTickets!);
     }
 }

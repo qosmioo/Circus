@@ -1,8 +1,5 @@
-﻿using System.Threading.Tasks;
-using Circus.Database.Context;
+﻿using Circus.Database.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace Circus.Server.Extensions;
 

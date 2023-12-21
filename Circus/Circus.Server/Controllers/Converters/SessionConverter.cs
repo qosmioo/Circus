@@ -4,13 +4,31 @@ namespace Circus.Server.Controllers.Converters;
 
 public static class SessionConverter
 {
-    public static Session? ConvertSessionToDto(Core.Models.Session? session)
+    public static Session? ConvertSessionToDto(Core.Models.Session? coreSession)
     {
-        if (session == null)
+        if (coreSession == null)
             return null;
 
-        var dtoTickets = session.Tickets.Select(TicketConverter.ConvertTicketToDto).ToList();
+        var dtoTickets = coreSession.Tickets.Select(TicketConverter.ConvertTicketToDto).ToList();
         
-        return new Session(session.Id, session.ShowId, session.HallId, session.StartsAt, dtoTickets);
+        return new Session(coreSession.Id, 
+            coreSession.ShowId, 
+            coreSession.HallId, 
+            coreSession.StartsAt, 
+            dtoTickets);
+    }
+    
+    public static Core.Models.Session? ConvertSessionToCore(Session? dtoSession)
+    {
+        if (dtoSession == null)
+            return null;
+
+        var coreTickets = dtoSession.Tickets.Select(TicketConverter.ConvertTicketToCore).ToList();
+        
+        return new Core.Models.Session(dtoSession.Id, 
+            dtoSession.ShowId, 
+            dtoSession.HallId, 
+            dtoSession.StartsAt, 
+            coreTickets!);
     }
 }

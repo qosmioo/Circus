@@ -4,16 +4,29 @@ namespace Circus.Server.Controllers.Converters;
 
 public static class ShowConverter
 {
-    public static Show? ConvertShowToDto(Core.Models.Show? show)
+    public static Show? ConvertShowToDto(Core.Models.Show? coreShow)
     {
-        if (show == null)
+        if (coreShow == null)
             return null;
 
-        var dtoFeedbacks = show.Feedbacks.Select(FeedbackConverter.ConvertFeedbackToDto).ToList();
-        var dtoSessions = show.Sessions.Select(SessionConverter.ConvertSessionToDto).ToList();
-        var dtoActorShows = show.ActorShows.Select(ActorShowConverter.ConvertActorShowToDto).ToList();
+        var dtoFeedbacks = coreShow.Feedbacks.Select(FeedbackConverter.ConvertFeedbackToDto).ToList();
+        var dtoSessions = coreShow.Sessions.Select(SessionConverter.ConvertSessionToDto).ToList();
+        var dtoActorShows = coreShow.ActorShows.Select(ActorShowConverter.ConvertActorShowToDto).ToList();
 
-        return new Show(show.Id, show.Name, show.Description, show.Duration,
-            show.PosterId, dtoFeedbacks, dtoSessions, dtoActorShows);
+        return new Show(coreShow.Id, coreShow.Name, coreShow.Description, coreShow.Duration,
+            coreShow.PosterId, dtoFeedbacks, dtoSessions, dtoActorShows);
+    }
+    
+    public static Core.Models.Show? ConvertShowToCore(Show? dtoShow)
+    {
+        if (dtoShow == null)
+            return null;
+
+        var coreFeedbacks = dtoShow.Feedbacks.Select(FeedbackConverter.ConvertFeedbackToCore).ToList();
+        var coreSessions = dtoShow.Sessions.Select(SessionConverter.ConvertSessionToCore).ToList();
+        var coreActorShows = dtoShow.ActorShows.Select(ActorShowConverter.ConvertActorShowToCore).ToList();
+
+        return new Core.Models.Show(dtoShow.Id, dtoShow.Name, dtoShow.Description, dtoShow.Duration,
+            dtoShow.PosterId, coreFeedbacks!, coreSessions!, coreActorShows!);
     }
 }

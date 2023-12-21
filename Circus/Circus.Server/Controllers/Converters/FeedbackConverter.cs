@@ -16,4 +16,17 @@ public static class FeedbackConverter
             feedback.CreatedAt,
             feedback.Rating);
     }
+
+    public static Core.Models.Feedback? ConvertFeedbackToCore(Feedback? feedback)
+    {
+        if (feedback == null)
+            return null;
+
+        return new Core.Models.Feedback(feedback.Id,
+            feedback.Text,
+            feedback.ShowId,
+            feedback.UserId,
+            feedback.CreatedAt,
+            feedback.Rating);
+    }
 }
